@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HELP ME | Home</title>
+  <meta name="description" content="description" />
+   <link rel="stylesheet" href="Estilos.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden>ME</div>
+        <div>
+          <h1>Mentoría entre Estudiantes</h1>
+          <p class="lead">Conecta estudiantes de ciclos iniciales con mentores de ciclos avanzados.</p>
+        </div>
+      </div>
+      <div>
+        <button class="btn" id="btn-google">Iniciar con Google</button>
+        <button class="ghost" id="btn-create-profile">Crear perfil</button>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section>
+        <div class="card" role="region" aria-label="Buscar mentores">
+          <div class="search-row">
+            <input type="text" id="searchInput" placeholder="Buscar por especialidad, carrera o palabra clave" aria-label="Buscar mentores"/>
+            <select id="filterSelect" aria-label="Filtrar por especialidad">
+              <option value="">Todas las especialidades</option>
+            </select>
+          </div>
+
+          <div class="mentors" id="mentorsList" aria-live="polite">
+            <!-- Cards se generan dinámicamente -->
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px;">
+          <h3 style="margin:0 0 10px 0">Casos de uso</h3>
+          <ol>
+            <li>Un estudiante busca y contacta a un mentor.</li>
+            <li>Un mentor acepta una solicitud y agendan una sesión.</li>
+            <li>Un aprendiz deja una valoración sobre la mentoría recibida.</li>
+          </ol>
+        </div>
+      </section>
+
+      <aside class="sidebar">
+        <div class="card section" role="complementary" aria-label="Agenda y próximas sesiones">
+          <h3 style="margin-top:0">Agenda</h3>
+          <p class="muted">futuras sesiones programadas</p>
+          <ul id="upcoming" style="margin-top:10px"></ul>
+        </div>
+
+        <div class="card section" role="complementary" aria-label="Crear solicitud de mentoría">
+          <h3 style="margin-top:0">Solicitar mentoría</h3>
+          <label for="selectMentor">Selecciona un mentor</label>
+          <select id="selectMentor" aria-label="Selecciona un mentor para la solicitud"></select>
+          <label for="sessionDate">Fecha y hora</label>
+          <input type="datetime-local" id="sessionDate" />
+          <button class="btn" id="btn-request" style="margin-top:10px">Enviar solicitud</button>
+          <p style="margin-top:8px;color:var(--muted);font-size:13px">Al aceptar, el mentor podrá confirmar y crear el evento en Google Calendar.</p>
+        </div>
+
+        <div class="card section" role="complementary" aria-label="Dejar valoración">
+          <h3 style="margin-top:0">Valorar mentoría</h3>
+          <label for="ratingMentor">Escoge mentor</label>
+          <select id="ratingMentor"></select>
+          <label for="ratingStars">Puntaje</label>
+          <div id="ratingStars" class="stars" role="radiogroup" aria-label="Puntuar con estrellas"></div>
+          <label for="ratingComment">Comentario</label>
+          <textarea id="ratingComment" rows="3"></textarea>
+          <button class="btn" id="btn-submit-rating" style="margin-top:8px">Enviar valoración</button>
+        </div>
+
+      </aside>
+    </main>
+
+    <footer>
+     Diseño responsivo y accesible.
+    </footer>
+  </div>
+
+  <!-- Modal simple para ver perfil y agendar -->
+  <template id="modalTpl">
+    <div class="modal-backdrop" role="dialog" aria-modal="true">
+      <div class="card modal">
+        <button class="ghost" id="closeModal" style="float:right">Cerrar</button>
+        <div id="modalContent"></div>
+      </div>
+    </div>
+  </template>
+
+
+ <script src="Script.js"></script>
+  <!-- NOTAS DE INTEGRACIÓN
+   - Autenticación con Google: configurar OAuth 2.0 (Client ID) y usar Google Identity Services en frontend o backend.
+   - Para crear eventos automáticos en Google Calendar sin abrir ventana: usar la API de Calendar con credenciales y permisos (requiere servidor).
+   - Seguridad: este prototipo usa localStorage como simulación. En producción, usar backend (Node, Django, etc.), HTTPS, y almacenamiento seguro.
+  -->
+</body>
+</html>
