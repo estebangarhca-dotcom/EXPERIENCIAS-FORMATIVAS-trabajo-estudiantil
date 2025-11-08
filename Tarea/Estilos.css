@@ -16,7 +16,7 @@
     .card{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
 
     /* Search */
-    .search-row{display:flex;gap:12px}
+    .search-row{display:flex;gap:12px ; color: red;} 
     .search-row input{flex:1;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:var(--glass);color:inherit}
 
     /* Mentor list */
@@ -31,7 +31,7 @@
     /* Sidebar */
     .sidebar .section{margin-bottom:12px}
     label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
-    input[type=text], select, textarea{width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    input[type=text], select, textarea{width:100%;padding:8px;border-radius:8px;border:1px solid rgba(175, 29, 29, 0.04);background:transparent;color:red}
 
     /* Modal */
     .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:flex;align-items:center;justify-content:center;z-index:60}
